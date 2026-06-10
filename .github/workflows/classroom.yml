@@ -1,0 +1,30 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: ib-up-os-day06-check
+      id: ib-up-os-day06-check
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: ib-up-os-day06-check
+        setup-command: pip install pyyaml
+        command: "./ckecker/check.py"
+        timeout: 10
+        max-score: 70
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        IB-UP-OS-DAY06-CHECK_RESULTS: "${{steps.ib-up-os-day06-check.outputs.result}}"
+      with:
+        runners: ib-up-os-day06-check

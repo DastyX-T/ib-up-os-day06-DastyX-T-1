@@ -1,0 +1,414 @@
+{
+  "assignment_id": "ib-up-os-day06-task",
+  "repository_prefix": "ib-up-os-day06-",
+  "title": "IB-UP-OS-Day06-Task. Installing Red Hat Enterprise Linux and managing containers with Podman",
+  "module_code": "IB-UP-OS-DAY06",
+  "token_prefix": "DAY06",
+  "level": "intermediate",
+  "estimated_duration_minutes": 360,
+  "topics": [
+    "rhcsa-ii",
+    "anaconda",
+    "rhel-installation",
+    "kickstart",
+    "ksvalidator",
+    "pykickstart",
+    "podman",
+    "containers",
+    "container-images",
+    "containerfile",
+    "registries",
+    "lab-autocheck",
+    "evidence",
+    "reflection"
+  ],
+  "student_goal": "Изучить материалы Red Hat Academy по установке RHEL, автоматизации установки через Kickstart и работе с контейнерами Podman, выполнить Guided Exercises и Lab с доказательствами и автопроверкой, затем оформить полный отчёт в GitHub.",
+  "rules": {
+    "total_score": 70,
+    "min_commits": 8,
+    "allowed_os_types": [
+      "windows",
+      "linux",
+      "macos"
+    ],
+    "submission_points": {
+      "module_code": 1,
+      "full_name": 1,
+      "group": 1,
+      "github_login": 1,
+      "student_token": 2,
+      "os_type": 1,
+      "work_mode": 1,
+      "tools_available": 1,
+      "evidence_mode": 1
+    },
+    "reflection_token_points": 3,
+    "reflection_sections": [
+      {
+        "title": "Что получилось",
+        "min_length": 80,
+        "points": 1.5
+      },
+      {
+        "title": "Что было сложным",
+        "min_length": 80,
+        "points": 1.5
+      },
+      {
+        "title": "Удобство формата выполнения и сдачи",
+        "min_length": 100,
+        "points": 1.5
+      },
+      {
+        "title": "Что улучшить дальше",
+        "min_length": 80,
+        "points": 1.5
+      }
+    ],
+    "report_sections": [
+      {
+        "title": "Интерактивная установка RHEL",
+        "min_length": 220,
+        "required_terms": [
+          "Anaconda",
+          "Minimal Install",
+          "tmux",
+          "root",
+          "student"
+        ],
+        "points": 4
+      },
+      {
+        "title": "Автоматизация установки через Kickstart",
+        "min_length": 220,
+        "required_terms": [
+          "Kickstart",
+          "ksvalidator",
+          "%packages",
+          "%post",
+          "inst.ks="
+        ],
+        "points": 4
+      },
+      {
+        "title": "Запуск контейнеров с помощью Podman",
+        "min_length": 220,
+        "required_terms": [
+          "Podman",
+          "podman run",
+          "podman ps",
+          "my_webserver",
+          "detached"
+        ],
+        "points": 4
+      },
+      {
+        "title": "Создание и управление образами контейнеров",
+        "min_length": 220,
+        "required_terms": [
+          "Containerfile",
+          "podman build",
+          "my_image:1.0",
+          "my_image:1.1",
+          "podman image inspect"
+        ],
+        "points": 4
+      },
+      {
+        "title": "Итог и выводы",
+        "min_length": 180,
+        "points": 4
+      }
+    ],
+    "artifact_tables": [
+      {
+        "path": "artifacts/concepts_table.md",
+        "min_data_rows": 14,
+        "min_length": 380,
+        "required_terms": [
+          "Anaconda",
+          "binary ISO",
+          "boot ISO",
+          "Kickstart",
+          "ksvalidator",
+          "inst.ks=",
+          "%packages",
+          "%post",
+          "Podman",
+          "container image",
+          "container instance",
+          "Containerfile",
+          "detached container",
+          "registry"
+        ],
+        "points": 5,
+        "description": "Таблица ключевых понятий глав 16-17"
+      },
+      {
+        "path": "artifacts/guided_exercises_log.md",
+        "min_data_rows": 5,
+        "min_length": 520,
+        "required_terms": [
+          "Install Red Hat Enterprise Linux Interactively",
+          "Automate Red Hat Enterprise Linux Installation with Kickstart",
+          "Run Containers with Podman",
+          "Create and Manage Container Images",
+          "Lab: Manage Containers with Podman"
+        ],
+        "points": 5,
+        "description": "Журнал выполнения Guided Exercises и итоговой Lab"
+      },
+      {
+        "path": "artifacts/evidence_log.md",
+        "min_data_rows": 10,
+        "min_length": 420,
+        "required_terms": [
+          "Interactive install summary or logs",
+          "Interactive install verification",
+          "Kickstart validation",
+          "Kickstart install verification",
+          "Hello Red Hat container run",
+          "Detached webserver container",
+          "Image build and tags",
+          "Image inspect or push",
+          "Lab grade containers-review",
+          "Local checker and final report"
+        ],
+        "points": 5,
+        "description": "Таблица доказательств выполнения"
+      }
+    ],
+    "artifact_texts": [
+      {
+        "path": "artifacts/practice_notes.md",
+        "min_length": 1500,
+        "min_code_blocks": 8,
+        "required_terms": [
+          "Anaconda",
+          "tmux",
+          "ksvalidator",
+          "inst.ks=",
+          "podman login",
+          "podman run",
+          "podman build",
+          "podman image inspect",
+          "lab grade containers-review"
+        ],
+        "required_any_term_groups": [
+          [
+            "ip addr show ens3",
+            "hostname",
+            "cat /etc/resolv.conf"
+          ],
+          [
+            "nmcli con show ens3",
+            "hostnamectl",
+            "apropos fstab"
+          ],
+          [
+            "podman ps -a",
+            "curl 127.0.0.1:8080",
+            "my_webserver"
+          ],
+          [
+            "podman search --list-tags",
+            "my_image:1.0",
+            "my_image:1.1"
+          ]
+        ],
+        "required_sections": [
+          {
+            "title": "Interactive installation",
+            "min_length": 140
+          },
+          {
+            "title": "Kickstart automation",
+            "min_length": 160
+          },
+          {
+            "title": "Podman run",
+            "min_length": 140
+          },
+          {
+            "title": "Container images",
+            "min_length": 160
+          },
+          {
+            "title": "Ошибки и исправления",
+            "min_length": 160
+          },
+          {
+            "title": "Проверка результата",
+            "min_length": 120
+          }
+        ],
+        "points": 3,
+        "description": "Журнал команд, наблюдений и исправлений по практике"
+      },
+      {
+        "path": "artifacts/lab_autocheck_result.md",
+        "min_length": 900,
+        "min_code_blocks": 3,
+        "required_terms": [
+          "id",
+          "sudo id",
+          "lsblk",
+          "nmcli con show ens3",
+          "apropos fstab",
+          "lab grade containers-review"
+        ],
+        "points": 4,
+        "description": "Проверка интерактивной установки, Kickstart и итоговой Lab",
+        "required_sections": [
+          {
+            "title": "Interactive installation verification",
+            "min_length": 120
+          },
+          {
+            "title": "Kickstart installation verification",
+            "min_length": 140
+          },
+          {
+            "title": "Lab: Manage Containers with Podman",
+            "min_length": 140
+          },
+          {
+            "title": "Вывод",
+            "min_length": 80
+          }
+        ]
+      },
+      {
+        "path": "artifacts/install_verification.md",
+        "min_length": 900,
+        "min_code_blocks": 5,
+        "required_terms": [
+          "id",
+          "sudo id",
+          "lsblk",
+          "ip addr show ens3",
+          "hostname",
+          "cat /etc/resolv.conf",
+          "ksvalidator",
+          "inst.ks=http://servera.lab.example.com/kickstart.cfg",
+          "nmcli con show ens3",
+          "hostnamectl",
+          "apropos fstab",
+          "autopart"
+        ],
+        "required_sections": [
+          {
+            "title": "Интерактивная установка RHEL",
+            "min_length": 160
+          },
+          {
+            "title": "Установка через Kickstart",
+            "min_length": 180
+          },
+          {
+            "title": "Сравнение ручной установки и Kickstart",
+            "min_length": 160
+          }
+        ],
+        "points": 4,
+        "description": "Проверочные выводы и анализ установки RHEL"
+      },
+      {
+        "path": "artifacts/container_image_audit.md",
+        "min_length": 900,
+        "min_code_blocks": 5,
+        "required_terms": [
+          "podman login",
+          "registry.lab.example.com:5000",
+          "podman run",
+          "my_webserver",
+          "podman build",
+          "my_image:1.0",
+          "my_image:1.1",
+          "podman image push",
+          "podman search --list-tags",
+          "podman image inspect"
+        ],
+        "required_any_term_groups": [
+          [
+            "curl 127.0.0.1:8080",
+            "localhost:8080"
+          ],
+          [
+            "This container uses the ubi8/ubi image",
+            "ubi8/ubi"
+          ],
+          [
+            "This container uses the ubi10/ubi image",
+            "ubi10/ubi"
+          ]
+        ],
+        "required_sections": [
+          {
+            "title": "Запуск готовых контейнеров",
+            "min_length": 160
+          },
+          {
+            "title": "Создание образов из Containerfile",
+            "min_length": 160
+          },
+          {
+            "title": "Публикация и проверка тегов",
+            "min_length": 160
+          },
+          {
+            "title": "Анализ inspect и сравнение версий",
+            "min_length": 160
+          }
+        ],
+        "points": 4,
+        "description": "Проверочные выводы и анализ контейнеров и образов"
+      }
+    ],
+    "checklist": {
+      "path": "artifacts/verification_checklist.md",
+      "min_checkboxes": 34,
+      "min_length": 160,
+      "points": 4
+    },
+    "screenshots": {
+      "index_path": "artifacts/screenshots/README.md",
+      "min_images": 10,
+      "min_embedded_images": 10,
+      "min_captions": 10,
+      "min_data_rows": 10,
+      "min_length": 300,
+      "token_mentions": 1,
+      "expected_token_mentions": 8,
+      "required_files": [
+        "interactive-install-summary-or-console.png",
+        "interactive-install-verification.png",
+        "kickstart-ksvalidator.png",
+        "kickstart-install-verification.png",
+        "podman-hello-run.png",
+        "podman-webserver-detached.png",
+        "podman-image-build-tags.png",
+        "podman-inspect-or-push.png",
+        "containers-review-grade.png",
+        "local-checker-and-report.png"
+      ],
+      "points": 3
+    },
+    "commit_checks": {
+      "min_token_commits": 7,
+      "required_touched_paths": [
+        "student/submission.yaml",
+        "student/reflection.md",
+        "artifacts/concepts_table.md",
+        "artifacts/guided_exercises_log.md",
+        "artifacts/practice_notes.md",
+        "artifacts/lab_autocheck_result.md",
+        "artifacts/install_verification.md",
+        "artifacts/container_image_audit.md",
+        "artifacts/evidence_log.md",
+        "artifacts/screenshots/README.md",
+        "report.md"
+      ]
+    }
+  }
+}
