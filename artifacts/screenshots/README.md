@@ -18,6 +18,10 @@
 ## Вставленные скриншоты
 
 ## Вставленные скриншоты
+
+![Проверка интерактивной установки RHEL и token DAY06-A0D5](interactive-install-summary-or-console.png)
+Подпись: Сам процесс установки
+
 ![Проверка интерактивной установки RHEL и token DAY06-A0D5](interactive-install-verification.png)
 Подпись: На скриншоте показаны результаты проверки после ручной установки и учебный token DAY06-A0D5
 
@@ -47,16 +51,3 @@
 
 ![Результат local-checker-and-report и token DAY06-A0D5](local-checker-and-report.png)
 Подпись: На скриншоте показан итог local-checker-and-report и token DAY06-A0D5
-
-Вставьте реальные скриншоты ниже. Минимум должно быть 10 отдельных изображений с подписями:
-
-1. `interactive-install-summary-or-console.png`
-2. `interactive-install-verification.png`
-3. `kickstart-ksvalidator.png`
-4. `kickstart-install-verification.png`
-5. `podman-hello-run.png`
-6. `podman-webserver-detached.png`
-7. `podman-image-build-tags.png`
-8. `podman-inspect-or-push.png`
-9. `containers-review-grade.png`
-10. `local-checker-and-report.png`
